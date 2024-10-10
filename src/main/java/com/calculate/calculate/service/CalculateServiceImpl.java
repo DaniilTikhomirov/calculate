@@ -1,6 +1,7 @@
 package com.calculate.calculate.service;
 
 
+import com.calculate.calculate.exeptions.ZeroDivideArgument;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -42,7 +43,7 @@ public class CalculateServiceImpl implements CalculateService {
         }
 
         if (num2.equals("0")) {
-            return "Ты пытаешься делить на 0";
+            throw new ZeroDivideArgument("деление на 0");
         }
         return num1 + " / " + num2 + " = " + (Integer.parseInt(num1) / Integer.parseInt(num2));
     }
